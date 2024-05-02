@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct AchievementDetailView: View {
+    @Environment(\.presentationMode) var presentationMode
     var model: AchievementModel
     
     var body: some View {
         ZStack {
+            Color.black.ignoresSafeArea()
+            
             VStack {
                 Image(model.imageName)
                     .resizable()
@@ -22,13 +25,21 @@ struct AchievementDetailView: View {
                     .font(.system(size: 32, weight: .heavy, design: .default))
                     .foregroundColor(.white)
                 
-                Text("\(model.date.formatted(date: .abbreviated, time: .omitted))")
+                Text(model.date.achievementFormat)
                     .font(.system(size: 24, weight: .semibold, design: .default))
                     .foregroundColor(.gray)
-            }
+            }.padding(5)
         }
-        .background(Color.black)
-        .edgesIgnoringSafeArea(.all)
+        .navigationTitle("Achievement")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "arrow.left")
+                .foregroundColor(.white)
+                .font(.system(size: 20))
+        })
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

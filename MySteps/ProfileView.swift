@@ -10,26 +10,22 @@ import SwiftUI
 struct ProfileView: View {
     var body: some View {
         ZStack {
-            Image("profile-background")
+            Image("achievement-30k") // used as the colorful blur behind the profile picture
                 .resizable()
                 .scaledToFit()
-                .frame(width: 400, height: 400)
-            
+                .frame(width: 200, height: 200)
+                .clipShape(Circle())
+                .blur(radius: 30)
             
             Circle()
-                .fill(Color.white.opacity(0.2)) // Set the fill color and make it semi-transparent
-                   .frame(width: 185, height: 185) //
-            
-            
+                .fill(Color.white.opacity(0.2))
+                .frame(width: 190, height: 190)
                     
             Image("profile-photo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 180, height: 180)
                 .clipShape(Circle())
-//                .overlay(
-//                    Circle().stroke(Color.gray.opacity(0.1), lineWidth: 4) // Semi-transparent white border
-//                          )
         }
     }
 }

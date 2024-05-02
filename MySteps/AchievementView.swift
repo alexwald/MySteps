@@ -20,8 +20,7 @@ struct AchievementView: View {
             Text("\(model.milestone.rawValue)")
                 .font(.system(size: 16, weight: .heavy, design: .default))
                 .foregroundColor(.white)
-            
-            Text("\(model.date.formatted(date: .abbreviated, time: .omitted))")
+            Text(model.date.achievementFormat)
                 .font(.system(size: 13, weight: .semibold, design: .default))
                 .foregroundColor(.gray)
         }

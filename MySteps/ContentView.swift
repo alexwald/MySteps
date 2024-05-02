@@ -11,29 +11,31 @@ struct ContentView: View {
     let healthkit = HealthKitController()
     @State private var stepCounts: [Date: Double] = [:]
     
-    
     var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            VStack {
-                ProfileView()
-                AchievementsView()
-            }
-   
-        }
-        .onAppear {
-            Task {
-                    do {
-                        let healthKitManager = HealthKitController()
-                        try await healthKitManager.requestAuthorization()
-                        stepCounts = try await healthKitManager.fetchMonthlySteps()
-                        print(stepCounts.description)
-                    } catch {
-                        print("Error: \(error)")
-                    }
+        NavigationView {
+            ZStack {
+                Color.black.ignoresSafeArea()
+                VStack {
+                    ProfileView()
+                    ChartView()
+                    AchievementsView()
                 }
-        }
-
+                .padding(.top, 50)
+                .padding([.bottom, .leading, .trailing], 5)
+            }
+            .onAppear {
+                Task {
+                        do {
+                            let healthKitManager = HealthKitController()
+                            try await healthKitManager.requestAuthorization()
+                            stepCounts = try await healthKitManager.fetchMonthlySteps()
+                            print(stepCounts.description)
+                        } catch {
+                            print("Error: \(error)")
+                        }
+                    }
+            }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

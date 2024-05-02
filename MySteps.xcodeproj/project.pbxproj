@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA44A5732BE365CE0092CB44 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44A5722BE365CE0092CB44 /* ChartView.swift */; };
+		FA753BBA2BE371950083385F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA753BB92BE371950083385F /* Date+Extensions.swift */; };
 		FA9BBC992BE2ED350049E3A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBC982BE2ED350049E3A0 /* ProfileView.swift */; };
 		FADE2A772BE2D94B00471F5C /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE2A762BE2D94B00471F5C /* HealthKitController.swift */; };
 		FADE2A7A2BE2E4F100471F5C /* AchievementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA44A5722BE365CE0092CB44 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		FA753BB92BE371950083385F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		FA9BBC982BE2ED350049E3A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FADE2A762BE2D94B00471F5C /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		FADE2A782BE2DE9C00471F5C /* MySteps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MySteps.entitlements; sourceTree = "<group>"; };
@@ -76,11 +80,13 @@
 				FAE4940A2BE2C5BE006D70D3 /* ContentView.swift */,
 				FAE494042BE0437E006D70D3 /* AchievementsView.swift */,
 				FA9BBC982BE2ED350049E3A0 /* ProfileView.swift */,
+				FA44A5722BE365CE0092CB44 /* ChartView.swift */,
 				FADE2A762BE2D94B00471F5C /* HealthKitController.swift */,
 				FAE493F52BE0213F006D70D3 /* Assets.xcassets */,
 				FAE493FA2BE0213F006D70D3 /* Persistence.swift */,
 				FAE494062BE2B18F006D70D3 /* AchievementModel.swift */,
 				FAE494082BE2B4DB006D70D3 /* AchievementView.swift */,
+				FA753BB92BE371950083385F /* Date+Extensions.swift */,
 				FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */,
 				FAE493FC2BE0213F006D70D3 /* MySteps.xcdatamodeld */,
 				FAE493F72BE0213F006D70D3 /* Preview Content */,
@@ -169,6 +175,7 @@
 				FADE2A772BE2D94B00471F5C /* HealthKitController.swift in Sources */,
 				FADE2A7A2BE2E4F100471F5C /* AchievementDetailView.swift in Sources */,
 				FAE493FB2BE0213F006D70D3 /* Persistence.swift in Sources */,
+				FA753BBA2BE371950083385F /* Date+Extensions.swift in Sources */,
 				FAE494072BE2B18F006D70D3 /* AchievementModel.swift in Sources */,
 				FAE4940B2BE2C5BE006D70D3 /* ContentView.swift in Sources */,
 				FAE493FE2BE0213F006D70D3 /* MySteps.xcdatamodeld in Sources */,
@@ -177,6 +184,7 @@
 				FAE493F42BE0213E006D70D3 /* ContentViewWithModel.swift in Sources */,
 				FA9BBC992BE2ED350049E3A0 /* ProfileView.swift in Sources */,
 				FAE493F22BE0213E006D70D3 /* MyStepsApp.swift in Sources */,
+				FA44A5732BE365CE0092CB44 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

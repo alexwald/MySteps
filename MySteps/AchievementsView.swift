@@ -15,6 +15,8 @@ struct AchievementsView: View {
                                             AchievementModel(milestone: .thirtyFiveK, date: Date()),
                                             AchievementModel(milestone: .fortyK, date: Date())
     ]
+  
+//    var achievements: [AchievementModel] = []
     
     var body: some View {
         VStack {
@@ -28,14 +30,33 @@ struct AchievementsView: View {
                 Spacer()
             }
     
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
-                    ForEach(achievements, id: \.self) { achievement in
-                        AchievementView(model: achievement)
+            if achievements.isEmpty {
+                VStack {
+                    Image("no-steps")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 94, height: 94)
+                    
+                    Text("No achievements yet")
+                        .font(.system(size: 21, weight: .heavy, design: .default))
+                        .foregroundColor(.white)
+                    
+                    Text("Take the first step!")
+                        .font(.system(size: 21, weight: .semibold, design: .default))
+                        .foregroundColor(.gray)
+                }
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 20) {
+                        ForEach(achievements, id: \.self) { achievement in
+                            NavigationLink(destination: AchievementDetailView(model: achievement)) {
+                                AchievementView(model: achievement)
+                            }
+                        }
                     }
                 }
+                .frame(height: 180)
             }
-            .frame(height: 180)
         }
         .background(Color.black)  
         .edgesIgnoringSafeArea(.all)
