@@ -29,11 +29,12 @@ struct ContentView: View {
                     .padding([.bottom, .leading, .trailing], 5)
                 }
             }
-            .onChange(of: scenePhase) {
-                if scenePhase == .active {
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
                     checkAndLoadData()
                 }
             }
+
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
