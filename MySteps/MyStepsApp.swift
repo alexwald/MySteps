@@ -13,6 +13,10 @@ struct MyStepsApp: App {
     @StateObject private var logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "MySteps", category: "General")
 
     init() {
+        configureAppearance()
+    }
+    
+    private func configureAppearance() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .black

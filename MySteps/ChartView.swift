@@ -31,7 +31,10 @@ struct ChartView: View {
         StepData(day: 10, steps: 25000),
         StepData(day: 11, steps: 30000),
         StepData(day: 12, steps: 50000),
-        StepData(day: 13, steps: 34000)
+        StepData(day: 13, steps: 34000),
+        StepData(day: 14, steps: 14000),
+        StepData(day: 15, steps: 14000)
+
       ]
     
     var maxSteps: Int {
