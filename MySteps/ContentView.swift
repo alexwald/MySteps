@@ -20,7 +20,7 @@ struct ContentView: View {
                     ChartView()
                     AchievementsView()
                 }
-                .padding(.top, 50)
+                .padding(.top, 20)
                 .padding([.bottom, .leading, .trailing], 5)
             }
             .onAppear {

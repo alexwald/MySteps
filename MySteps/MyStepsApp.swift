@@ -14,7 +14,7 @@ struct MyStepsApp: App {
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .black // Set the background color
+        appearance.backgroundColor = .black
 
         let customFont = UIFont.systemFont(ofSize: 24, weight: .black)
         appearance.titleTextAttributes = [.font: customFont, .foregroundColor: UIColor.white]
