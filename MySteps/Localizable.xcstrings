@@ -1,0 +1,127 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "Achievement" : {
+      "comment" : "Achievement detail screen title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Achievement"
+          }
+        }
+      }
+    },
+    "Achievements " : {
+      "comment" : "label displaying the achievements count",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Achievements "
+          }
+        }
+      }
+    },
+    "Add Item" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Add Item"
+          }
+        }
+      }
+    },
+    "Day" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Day"
+          }
+        }
+      }
+    },
+    "Item at %@" : {
+
+    },
+    "No achievements yet" : {
+      "comment" : "label for no achievements",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_No achievements yet"
+          }
+        }
+      }
+    },
+    "NSHealthShareUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We need access to your Health data repository to count daily steps."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_We need access to your Health data repository to count daily steps."
+          }
+        }
+      }
+    },
+    "NSHealthUpdateUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We need access to your Health data repository to count daily steps."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_We need access to your Health data repository to count daily steps."
+          }
+        }
+      }
+    },
+    "Select an item" : {
+
+    },
+    "Steps" : {
+      "comment" : "label for step count\nplural of Step in achievements",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Steps"
+          }
+        }
+      }
+    },
+    "Take the first step!" : {
+      "comment" : "subtitle for no achievements",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Take the first step!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
