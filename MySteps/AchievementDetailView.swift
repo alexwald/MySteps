@@ -21,7 +21,7 @@ struct AchievementDetailView: View {
                     .scaledToFit()
                     .frame(width: 207, height: 207)
                     .clipShape(Circle())
-                Text("\(model.milestone.rawValue)")
+                Text("\(model.milestone.localizedString)")
                     .font(.system(size: 32, weight: .heavy, design: .default))
                     .foregroundColor(.white)
                 
@@ -30,7 +30,7 @@ struct AchievementDetailView: View {
                     .foregroundColor(.gray)
             }.padding(5)
         }
-        .navigationTitle("Achievement")
+        .navigationTitle(NSLocalizedString("Achievement", comment: "Achievement detail screen title"))
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()

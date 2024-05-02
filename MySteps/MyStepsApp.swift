@@ -10,7 +10,8 @@ import SwiftUI
 @main
 struct MyStepsApp: App {
     let persistenceController = PersistenceController.shared
-    
+    @StateObject private var logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "MySteps", category: "General")
+
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -31,6 +32,7 @@ struct MyStepsApp: App {
 //            ContentViewWithModel()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             ContentView()
+                .environmentObject(logger)
         }
     }
 }

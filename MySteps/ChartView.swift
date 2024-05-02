@@ -15,6 +15,8 @@ struct StepData: Identifiable {
 }
 
 struct ChartView: View {
+    @EnvironmentObject var logger: Logger
+    
     let stepData: [StepData] = [
         StepData(day: 1, steps: 12000),
         StepData(day: 2, steps: 15000),
@@ -42,7 +44,7 @@ struct ChartView: View {
         formatter.numberStyle = .decimal
         formatter.locale = Locale.current
         guard let formattedString = formatter.string(from: NSNumber(value: totalInt)) else {
-            print("the input total numberof steps is invalid")
+            logger.log("the input total numberof steps is invalid", type: .error)
             return "0"
         }
         return formattedString
@@ -54,7 +56,7 @@ struct ChartView: View {
         if let range = calendar.range(of: .day, in: .month, for: currentDate) {
             return range.upperBound - 1
         } else {
-            print("could not find the latest day of the month, using a default: 30")
+            logger.log("could not find the latest day of the month, using a default: 30", type: .error)
             return 30
         }
     }
@@ -69,7 +71,7 @@ struct ChartView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Steps")
+                Text("Steps", comment: "label for step count")
                     .font(.system(size: 32, weight: .black, design: .default))
                     .foregroundColor(.white)
                 Text(formattedMonth)
@@ -93,8 +95,9 @@ struct ChartView: View {
                     y: .value("Steps", data.steps)
                 )
                 .interpolationMethod(.catmullRom)
-
-                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .top, endPoint: .bottom))
+                .foregroundStyle(LinearGradient(gradient: 
+                                                    Gradient(colors: [Color("steps-green"), Color("steps-blue")]),
+                                                startPoint: .top, endPoint: .bottom))
             }
         }
         .padding([.bottom, .top], 15)
@@ -112,6 +115,8 @@ struct ChartView: View {
                     .foregroundStyle(.gray.opacity(1))
             }
         }
+        // NOTE: the product spec said to set the y-axis upper limit to the total sum of steps of the month,
+        // but that makes no sense; the upper domain limit should be the most steps achieved on any given day
         .chartYScale(domain: 0...maxSteps)
         .chartXScale(domain: 1...latestDayOfTheCurrentMonth)
     }

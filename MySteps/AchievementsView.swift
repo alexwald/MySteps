@@ -21,7 +21,7 @@ struct AchievementsView: View {
     var body: some View {
         VStack {
             HStack(spacing: 0) {
-                Text("Achievements ")
+                Text("Achievements ", comment: "label displaying the achievements count")
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .bold, design: .default))
                 Text("\(achievements.count)")
@@ -37,11 +37,11 @@ struct AchievementsView: View {
                         .scaledToFit()
                         .frame(width: 94, height: 94)
                     
-                    Text("No achievements yet")
+                    Text("No achievements yet", comment: "label for no achievements")
                         .font(.system(size: 21, weight: .heavy, design: .default))
                         .foregroundColor(.white)
                     
-                    Text("Take the first step!")
+                    Text("Take the first step!", comment: "subtitle for no achievements")
                         .font(.system(size: 21, weight: .semibold, design: .default))
                         .foregroundColor(.gray)
                 }

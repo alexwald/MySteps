@@ -7,13 +7,17 @@
 
 import Foundation
 
-enum StepsTakenMilestone: String {
-    case fifteenK = "15k Steps"
-    case twentyK = "20k Steps"
-    case twentyFiveK = "25k Steps"
-    case thirtyK = "30k Steps"
-    case thirtyFiveK = "35k Steps"
-    case fortyK = "40k Steps"
+enum StepsTakenMilestone: Int {
+    case fifteenK = 15000
+    case twentyK = 20000
+    case twentyFiveK = 25000
+    case thirtyK = 30000
+    case thirtyFiveK = 35000
+    case fortyK = 40000
+    
+    var localizedString: String {
+        return "\(String(self.rawValue/1000))k \(NSLocalizedString("Steps", comment: "plural of Step in achievements"))"
+    }
 }
 
 struct AchievementModel: Hashable {

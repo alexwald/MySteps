@@ -17,7 +17,7 @@ struct AchievementView: View {
                 .scaledToFit()
                 .frame(width: 116, height: 116)
                 .clipShape(Circle())
-            Text("\(model.milestone.rawValue)")
+            Text("\(model.milestone.localizedString)")
                 .font(.system(size: 16, weight: .heavy, design: .default))
                 .foregroundColor(.white)
             Text(model.date.achievementFormat)
