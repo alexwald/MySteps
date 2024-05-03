@@ -9,9 +9,10 @@ import Foundation
 
 class StepDataModel: ObservableObject {
     @Published var stepCounts: [StepRecord] = []
-   
+    let healthkit = HealthKitController()
+    
     @MainActor
-    func refreshWith(stepCounts: [Date: Double] = [:]) {
+    private func refreshWith(stepCounts: [Date: Double] = [:]) {
         let newSteps = stepCounts.map { date, steps -> StepRecord in
             return StepRecord(date: date, steps: Int(steps))
         }
@@ -19,20 +20,18 @@ class StepDataModel: ObservableObject {
 
         self.stepCounts = newSteps
     }
+    
+    func checkAndLoadData() async throws {
+        try await healthkit.requestAuthorization()
+        let healthKitSteps = try await self.healthkit.fetchMonthlySteps()
+        await self.refreshWith(stepCounts: healthKitSteps)
+        UserDefaults.standard.set(Date(), forKey: Constants.lastFetchDate)
+        print(self.stepCounts.description)
+    }
 }
 
 extension StepDataModel {
-//    static var preview: StepDataModel {
-//        let sampleData: [Date: Double] = [
-//            Date().addingTimeInterval(-86400 * 2): 15000, // 2 days ago
-//            Date().addingTimeInterval(-86400): 22000,     // 1 day ago
-//            Date(): 11500                                 // today
-//        ]
-//        
-//        let model = StepDataModel()
-//        model.refreshWith(stepCounts: sampleData)
-//        return model
-//    }
+
 }
 
 struct StepRecord: Identifiable {

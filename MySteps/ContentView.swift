@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    let healthkit = HealthKitController()
     @State private var showAlert = false
     @State private var alertMessage = ""
-//    @State private var stepCounts: [Date: Double] = [:]
     @StateObject private var stepDataModel = StepDataModel()
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var logger: Logger
@@ -34,40 +32,39 @@ struct ContentView: View {
             }
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .active {
-                    checkAndLoadData()
+                    Task {
+                        do {
+                            try await stepDataModel.checkAndLoadData()
+                        } catch {
+                            updateUIForError(error)
+                        }
+                    }
                 }
             }
+            .onAppear(perform: {
+                let lastFetchDate = UserDefaults.standard.object(forKey: Constants.lastFetchDate) as? Date ?? Date.distantPast
+                let calendar = Calendar.current
+                if calendar.isDateInToday(lastFetchDate) {
+                    logger.log("Data already fetched today.", type: .info)
+                    return
+                }
+                
+                Task {
+                    do {
+                        try await stepDataModel.checkAndLoadData()
+                    } catch {
+                        updateUIForError(error)
+                    }
+                }
+            })
             .alert(NSLocalizedString("Error", comment: ""), isPresented: $showAlert) {
                 Button(NSLocalizedString("OK", comment: ""), role: .cancel) { showAlert.toggle() }
-              } message: {
-                  Text(alertMessage)
-              }
-
+            } message: {
+                Text(alertMessage)
+            }
+            
         }.navigationViewStyle(StackNavigationViewStyle())
     }
-    
-    private func checkAndLoadData() {
-        let lastFetchDate = UserDefaults.standard.object(forKey: Constants.lastFetchDate) as? Date ?? Date.distantPast
-           let calendar = Calendar.current
-//           if calendar.isDateInToday(lastFetchDate) {
-//               logger.log("Data already fetched today.", type: .info)
-//               return
-//           }
-           
-           Task {
-               do {
-                   try await healthkit.requestAuthorization()
-//                   let healthKitSteps = try await self.healthkit.fetchMonthlySteps()
-                   stepDataModel.refreshWith(stepCounts: try await self.healthkit.fetchMonthlySteps())
-//                   stepDataModel.stepCounts = try await self.healthkit.fetchMonthlySteps()
-                   UserDefaults.standard.set(Date(), forKey: Constants.lastFetchDate)
-                   print(stepDataModel.stepCounts.description)
-               } catch {
-                   logger.log("Error fetching steps: \(error)", type: .error)
-                   updateUIForError(error)
-               }
-           }
-       }
     
     @MainActor
     private func updateUIForError(_ error: Error) {
@@ -79,6 +76,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(Logger(subsystem: Bundle.main.bundleIdentifier ?? "MySteps", category: "General"))
-//        .environmentObject(StepDataModel.preview)
-
+    //        .environmentObject(StepDataModel.preview)
 }
