@@ -32,8 +32,6 @@ struct MyStepsApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ContentViewWithModel()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             ContentView()
                 .environmentObject(logger)
         }

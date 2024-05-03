@@ -17,29 +17,6 @@ struct StepData: Identifiable {
 struct ChartView: View {
     @Binding var stepData: [StepRecord]
     @EnvironmentObject var logger: Logger
-//    let stepData: [StepData]
-
-//    let stepData: [StepData] = [
-//        StepData(day: 1, steps: 12000),
-//        StepData(day: 2, steps: 15000),
-//        StepData(day: 3, steps: 18000),
-//        StepData(day: 3, steps: 25000),
-//        StepData(day: 4, steps: 30000),
-//        StepData(day: 5, steps: 50000),
-//        StepData(day: 6, steps: 34000),
-//        StepData(day: 7, steps: 12000),
-//        StepData(day: 8, steps: 15000),
-//        StepData(day: 9, steps: 18000),
-//        StepData(day: 10, steps: 25000),
-//        StepData(day: 11, steps: 30000),
-//        StepData(day: 12, steps: 50000),
-//        StepData(day: 13, steps: 34000),
-//        StepData(day: 14, steps: 14000),
-//        StepData(day: 15, steps: 14000)
-//
-//      ]
-    
-
     
     var maxSteps: Int {
         Int(stepData.map { $0.steps }.max() ?? 0)
