@@ -17,11 +17,8 @@
 		FADE2A772BE2D94B00471F5C /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE2A762BE2D94B00471F5C /* HealthKitController.swift */; };
 		FADE2A7A2BE2E4F100471F5C /* AchievementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */; };
 		FAE493F22BE0213E006D70D3 /* MyStepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE493F12BE0213E006D70D3 /* MyStepsApp.swift */; };
-		FAE493F42BE0213E006D70D3 /* ContentViewWithModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE493F32BE0213E006D70D3 /* ContentViewWithModel.swift */; };
 		FAE493F62BE0213F006D70D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE493F52BE0213F006D70D3 /* Assets.xcassets */; };
 		FAE493F92BE0213F006D70D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE493F82BE0213F006D70D3 /* Preview Assets.xcassets */; };
-		FAE493FB2BE0213F006D70D3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE493FA2BE0213F006D70D3 /* Persistence.swift */; };
-		FAE493FE2BE0213F006D70D3 /* MySteps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAE493FC2BE0213F006D70D3 /* MySteps.xcdatamodeld */; };
 		FAE494052BE0437E006D70D3 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE494042BE0437E006D70D3 /* AchievementsView.swift */; };
 		FAE494072BE2B18F006D70D3 /* AchievementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE494062BE2B18F006D70D3 /* AchievementModel.swift */; };
 		FAE494092BE2B4DB006D70D3 /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE494082BE2B4DB006D70D3 /* AchievementView.swift */; };
@@ -41,11 +38,8 @@
 		FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDetailView.swift; sourceTree = "<group>"; };
 		FAE493EE2BE0213E006D70D3 /* MySteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE493F12BE0213E006D70D3 /* MyStepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStepsApp.swift; sourceTree = "<group>"; };
-		FAE493F32BE0213E006D70D3 /* ContentViewWithModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewWithModel.swift; sourceTree = "<group>"; };
 		FAE493F52BE0213F006D70D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAE493F82BE0213F006D70D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAE493FA2BE0213F006D70D3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		FAE493FD2BE0213F006D70D3 /* MySteps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MySteps.xcdatamodel; sourceTree = "<group>"; };
 		FAE494042BE0437E006D70D3 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
 		FAE494062BE2B18F006D70D3 /* AchievementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementModel.swift; sourceTree = "<group>"; };
 		FAE494082BE2B4DB006D70D3 /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -85,7 +79,6 @@
 			children = (
 				FADE2A782BE2DE9C00471F5C /* MySteps.entitlements */,
 				FAE493F12BE0213E006D70D3 /* MyStepsApp.swift */,
-				FAE493F32BE0213E006D70D3 /* ContentViewWithModel.swift */,
 				FAE4940A2BE2C5BE006D70D3 /* ContentView.swift */,
 				FAD22F522BE436F40042FEF6 /* Localizable.xcstrings */,
 				FAE494042BE0437E006D70D3 /* AchievementsView.swift */,
@@ -94,13 +87,11 @@
 				FA44A5722BE365CE0092CB44 /* ChartView.swift */,
 				FADE2A762BE2D94B00471F5C /* HealthKitController.swift */,
 				FAE493F52BE0213F006D70D3 /* Assets.xcassets */,
-				FAE493FA2BE0213F006D70D3 /* Persistence.swift */,
 				FAE494062BE2B18F006D70D3 /* AchievementModel.swift */,
 				FAE494082BE2B4DB006D70D3 /* AchievementView.swift */,
 				FA753BB92BE371950083385F /* Date+Extensions.swift */,
 				FAD22F4E2BE3E85D0042FEF6 /* Constants.swift */,
 				FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */,
-				FAE493FC2BE0213F006D70D3 /* MySteps.xcdatamodeld */,
 				FAE493F72BE0213F006D70D3 /* Preview Content */,
 			);
 			path = MySteps;
@@ -189,16 +180,13 @@
 			files = (
 				FADE2A772BE2D94B00471F5C /* HealthKitController.swift in Sources */,
 				FADE2A7A2BE2E4F100471F5C /* AchievementDetailView.swift in Sources */,
-				FAE493FB2BE0213F006D70D3 /* Persistence.swift in Sources */,
 				FAD22F4F2BE3E85D0042FEF6 /* Constants.swift in Sources */,
 				FA753BBA2BE371950083385F /* Date+Extensions.swift in Sources */,
 				FAE494072BE2B18F006D70D3 /* AchievementModel.swift in Sources */,
 				FAE4940B2BE2C5BE006D70D3 /* ContentView.swift in Sources */,
-				FAE493FE2BE0213F006D70D3 /* MySteps.xcdatamodeld in Sources */,
 				FAE494052BE0437E006D70D3 /* AchievementsView.swift in Sources */,
 				FAE494092BE2B4DB006D70D3 /* AchievementView.swift in Sources */,
 				FAD22F512BE420440042FEF6 /* Logger.swift in Sources */,
-				FAE493F42BE0213E006D70D3 /* ContentViewWithModel.swift in Sources */,
 				FA9BBC992BE2ED350049E3A0 /* ProfileView.swift in Sources */,
 				FAE493F22BE0213E006D70D3 /* MyStepsApp.swift in Sources */,
 				FA44A5732BE365CE0092CB44 /* ChartView.swift in Sources */,
@@ -417,19 +405,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FAE493FC2BE0213F006D70D3 /* MySteps.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FAE493FD2BE0213F006D70D3 /* MySteps.xcdatamodel */,
-			);
-			currentVersion = FAE493FD2BE0213F006D70D3 /* MySteps.xcdatamodel */;
-			path = MySteps.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FAE493E62BE0213E006D70D3 /* Project object */;
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     let healthkit = HealthKitController()
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @State private var stepCounts: [Date: Double] = [:]
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var logger: Logger
@@ -34,6 +36,11 @@ struct ContentView: View {
                     checkAndLoadData()
                 }
             }
+            .alert(NSLocalizedString("Error", comment: ""), isPresented: $showAlert) {
+                Button(NSLocalizedString("OK", comment: ""), role: .cancel) { showAlert.toggle() }
+              } message: {
+                  Text(alertMessage)
+              }
 
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -41,7 +48,7 @@ struct ContentView: View {
     private func checkAndLoadData() {
         let lastFetchDate = UserDefaults.standard.object(forKey: Constants.lastFetchDate) as? Date ?? Date.distantPast
            let calendar = Calendar.current
-           if calendar.isDateInToday(lastFetchDate) { // nothing to do
+           if calendar.isDateInToday(lastFetchDate) {
                logger.log("Data already fetched today.", type: .info)
                return
            }
@@ -54,9 +61,16 @@ struct ContentView: View {
                    print(stepCounts.description)
                } catch {
                    logger.log("Error fetching steps: \(error)", type: .error)
+                   updateUIForError(error)
                }
            }
        }
+    
+    @MainActor
+    private func updateUIForError(_ error: Error) {
+        alertMessage = "\(NSLocalizedString("Failed to fetch steps: ", comment: "error when fetching HK steps"))\(error.localizedDescription)"
+        showAlert.toggle()
+    }
 }
 
 #Preview {

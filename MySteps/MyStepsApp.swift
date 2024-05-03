@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct MyStepsApp: App {
-    let persistenceController = PersistenceController.shared
     @StateObject private var logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "MySteps", category: "General")
 
     init() {

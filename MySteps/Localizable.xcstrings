@@ -30,6 +30,7 @@
       }
     },
     "Add Item" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -49,8 +50,26 @@
         }
       }
     },
-    "Item at %@" : {
-
+    "Error" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Error"
+          }
+        }
+      }
+    },
+    "Failed to fetch steps: " : {
+      "comment" : "error when fetching HK steps",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_Failed to fetch steps: "
+          }
+        }
+      }
     },
     "No achievements yet" : {
       "comment" : "label for no achievements",
@@ -97,8 +116,15 @@
         }
       }
     },
-    "Select an item" : {
-
+    "OK" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fr_OK"
+          }
+        }
+      }
     },
     "Steps" : {
       "comment" : "label for step count\nplural of Step in achievements",
