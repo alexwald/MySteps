@@ -30,12 +30,11 @@ class StepDataModel: ObservableObject {
         let healthKitSteps = try await self.healthkit.fetchMonthlySteps()
         await self.refreshWith(stepCounts: healthKitSteps)
         try await self.saveStepsToCoreData(stepRecords: self.stepCounts)
+        try await updateAchievementsFromCurrentMonthSteps()
         UserDefaults.standard.set(Date(), forKey: Constants.lastFetchDate)
-        print(self.stepCounts.description)
     }
     
     private func saveStepsToCoreData(stepRecords: [StepRecord]) async throws {
-     
         let managedContext = persistenceController.container.viewContext
 
         // Process each StepRecord to update CoreData
@@ -58,26 +57,52 @@ class StepDataModel: ObservableObject {
         }
 
         try managedContext.save()
-        await updateAchievements(stepRecords: stepRecords)
+    }
+    
+    private func currentDateRange() throws -> (start: Date, end: Date) {
+        let calendar = Calendar.current
+        let now = Date()
+        guard let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: now)),
+              let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1, hour: 23, minute: 59, second: 59), to: startOfMonth) else {
+            throw NSError(domain: "com.example.MySteps", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to calculate the current month's date range."])
+        }
+        return (start: startOfMonth, end: endOfMonth)
+    }
+    
+    private func fetchCurrentMonthSteps() async throws -> [ManagedStepRecord] {
+        let managedContext = persistenceController.container.viewContext
+        let fetchRequest: NSFetchRequest<ManagedStepRecord> = ManagedStepRecord.fetchRequest()
 
+        let dateRange = try currentDateRange()
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@", dateRange.start as NSDate, dateRange.end as NSDate)
+
+        do {
+            let records = try managedContext.fetch(fetchRequest)
+            return records
+        } catch {
+            print("Failed to fetch records for the current month: \(error)")
+            throw error
+        }
+    }
+    
+    func updateAchievementsFromCurrentMonthSteps() async throws {
+        let records = try await fetchCurrentMonthSteps()
+        let totalSteps = records.reduce(0) { $0 + Int($1.steps) }
+        await updateAchievements(totalSteps: totalSteps)
     }
     
     @MainActor
-    private func updateAchievements(stepRecords: [StepRecord]) {
-        for stepRecord in stepRecords {
-            let steps = Int(stepRecord.steps)
-            let date = stepRecord.date
-
-            for milestone in StepsTakenMilestone.allCases {
-                if steps >= milestone.rawValue {
-                    let achievement = AchievementModel(milestone: milestone, date: date)
-                    if !self.achievements.contains(achievement) {
-                        self.achievements.append(achievement)
-                    }
+    private func updateAchievements(totalSteps: Int) {
+        for milestone in StepsTakenMilestone.allCases {
+            if totalSteps >= milestone.rawValue {
+                let today = Date() // NOTE: the Figma design specifies that the date displayed should be on
+                let achievement = AchievementModel(milestone: milestone, date: today)
+                if !achievements.contains(achievement) {
+                    achievements.append(achievement)
                 }
             }
-            self.achievements.sort { $0.milestone.rawValue > $1.milestone.rawValue }
         }
+        achievements.sort { $0.milestone.rawValue > $1.milestone.rawValue }
     }
 }
 

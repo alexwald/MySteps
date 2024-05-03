@@ -18,7 +18,7 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 Color.black.ignoresSafeArea()
-                ScrollView{
+                ScrollView {
                     VStack {
                         ProfileView()
                         ChartView(stepData: $stepDataModel.stepCounts)
