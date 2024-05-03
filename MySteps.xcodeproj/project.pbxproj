@@ -14,6 +14,7 @@
 		FAD22F512BE420440042FEF6 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD22F502BE420440042FEF6 /* Logger.swift */; };
 		FAD22F532BE436F40042FEF6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FAD22F522BE436F40042FEF6 /* Localizable.xcstrings */; };
 		FAD22F552BE43A0B0042FEF6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FAD22F542BE43A0B0042FEF6 /* InfoPlist.xcstrings */; };
+		FAD22F572BE4C9B30042FEF6 /* StepDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD22F562BE4C9B30042FEF6 /* StepDataModel.swift */; };
 		FADE2A772BE2D94B00471F5C /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE2A762BE2D94B00471F5C /* HealthKitController.swift */; };
 		FADE2A7A2BE2E4F100471F5C /* AchievementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */; };
 		FAE493F22BE0213E006D70D3 /* MyStepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE493F12BE0213E006D70D3 /* MyStepsApp.swift */; };
@@ -33,6 +34,7 @@
 		FAD22F502BE420440042FEF6 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		FAD22F522BE436F40042FEF6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		FAD22F542BE43A0B0042FEF6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		FAD22F562BE4C9B30042FEF6 /* StepDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepDataModel.swift; sourceTree = "<group>"; };
 		FADE2A762BE2D94B00471F5C /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		FADE2A782BE2DE9C00471F5C /* MySteps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MySteps.entitlements; sourceTree = "<group>"; };
 		FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDetailView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				FADE2A782BE2DE9C00471F5C /* MySteps.entitlements */,
 				FAE493F12BE0213E006D70D3 /* MyStepsApp.swift */,
 				FAE4940A2BE2C5BE006D70D3 /* ContentView.swift */,
+				FAD22F562BE4C9B30042FEF6 /* StepDataModel.swift */,
 				FAD22F522BE436F40042FEF6 /* Localizable.xcstrings */,
 				FAE494042BE0437E006D70D3 /* AchievementsView.swift */,
 				FA9BBC982BE2ED350049E3A0 /* ProfileView.swift */,
@@ -185,6 +188,7 @@
 				FAE494072BE2B18F006D70D3 /* AchievementModel.swift in Sources */,
 				FAE4940B2BE2C5BE006D70D3 /* ContentView.swift in Sources */,
 				FAE494052BE0437E006D70D3 /* AchievementsView.swift in Sources */,
+				FAD22F572BE4C9B30042FEF6 /* StepDataModel.swift in Sources */,
 				FAE494092BE2B4DB006D70D3 /* AchievementView.swift in Sources */,
 				FAD22F512BE420440042FEF6 /* Logger.swift in Sources */,
 				FA9BBC992BE2ED350049E3A0 /* ProfileView.swift in Sources */,

@@ -11,7 +11,8 @@ struct ContentView: View {
     let healthkit = HealthKitController()
     @State private var showAlert = false
     @State private var alertMessage = ""
-    @State private var stepCounts: [Date: Double] = [:]
+//    @State private var stepCounts: [Date: Double] = [:]
+    @StateObject private var stepDataModel = StepDataModel()
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var logger: Logger
     
@@ -22,7 +23,7 @@ struct ContentView: View {
                 ScrollView{
                     VStack {
                         ProfileView()
-                        ChartView()
+                        ChartView(stepData: $stepDataModel.stepCounts)
                             .aspectRatio(16/9, contentMode: .fit)
                             .environmentObject(logger)
                         AchievementsView()
@@ -48,17 +49,19 @@ struct ContentView: View {
     private func checkAndLoadData() {
         let lastFetchDate = UserDefaults.standard.object(forKey: Constants.lastFetchDate) as? Date ?? Date.distantPast
            let calendar = Calendar.current
-           if calendar.isDateInToday(lastFetchDate) {
-               logger.log("Data already fetched today.", type: .info)
-               return
-           }
+//           if calendar.isDateInToday(lastFetchDate) {
+//               logger.log("Data already fetched today.", type: .info)
+//               return
+//           }
            
            Task {
                do {
                    try await healthkit.requestAuthorization()
-                   stepCounts = try await self.healthkit.fetchMonthlySteps()
+//                   let healthKitSteps = try await self.healthkit.fetchMonthlySteps()
+                   stepDataModel.refreshWith(stepCounts: try await self.healthkit.fetchMonthlySteps())
+//                   stepDataModel.stepCounts = try await self.healthkit.fetchMonthlySteps()
                    UserDefaults.standard.set(Date(), forKey: Constants.lastFetchDate)
-                   print(stepCounts.description)
+                   print(stepDataModel.stepCounts.description)
                } catch {
                    logger.log("Error fetching steps: \(error)", type: .error)
                    updateUIForError(error)
@@ -76,5 +79,6 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(Logger(subsystem: Bundle.main.bundleIdentifier ?? "MySteps", category: "General"))
-//        .environment(\.locale, .init(identifier: "fr"))  // Set to French
+//        .environmentObject(StepDataModel.preview)
+
 }

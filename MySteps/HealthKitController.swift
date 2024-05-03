@@ -53,7 +53,8 @@ class HealthKitController {
                     result.enumerateStatistics(from: startOfMonth, to: endOfMonth) { statistics, _ in
                         let date = statistics.startDate
                         let steps = statistics.sumQuantity()?.doubleValue(for: HKUnit.count())
-                        data[date] = steps ?? 0
+                        data[date] = steps
+
                     }
                     continuation.resume(returning: data)
                 }
