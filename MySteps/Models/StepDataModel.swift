@@ -93,16 +93,19 @@ class StepDataModel: ObservableObject {
     
     @MainActor
     private func updateAchievements(totalSteps: Int) {
+        var newAchieve = [AchievementModel]()
         for milestone in StepsTakenMilestone.allCases {
+            
             if totalSteps >= milestone.rawValue {
                 let today = Date() // NOTE: the Figma design specifies that the date displayed should be on
                 let achievement = AchievementModel(milestone: milestone, date: today)
                 if !achievements.contains(achievement) {
-                    achievements.append(achievement)
+                    newAchieve.append(achievement)
                 }
             }
         }
-        achievements.sort { $0.milestone.rawValue > $1.milestone.rawValue }
+        newAchieve.sort { $0.milestone.rawValue > $1.milestone.rawValue }
+        achievements = newAchieve
     }
 }
 
