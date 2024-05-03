@@ -41,22 +41,6 @@ struct ContentView: View {
                     }
                 }
             }
-            .onAppear(perform: {
-                let lastFetchDate = UserDefaults.standard.object(forKey: Constants.lastFetchDate) as? Date ?? Date.distantPast
-                let calendar = Calendar.current
-                if calendar.isDateInToday(lastFetchDate) {
-                    logger.log("Data already fetched today.", type: .info)
-                    return
-                }
-                
-                Task {
-                    do {
-                        try await stepDataModel.checkAndLoadData()
-                    } catch {
-                        updateUIForError(error)
-                    }
-                }
-            })
             .alert(LocalizedStrings.error, isPresented: $showAlert) {
                 Button(LocalizedStrings.OK, role: .cancel) { showAlert.toggle() }
             } message: {

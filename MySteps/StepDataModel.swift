@@ -47,20 +47,16 @@ class StepDataModel: ObservableObject {
             let stepEntity: ManagedStepRecord
 
             if let existingEntity = results.first {
-                // Update evalue    Double    1632xisting entity
                 stepEntity = existingEntity
             } else {
-                // Create new entity
                 stepEntity = NSEntityDescription.insertNewObject(forEntityName: "ManagedStepRecord", into: managedContext) as! ManagedStepRecord
                 stepEntity.id = stepRecord.id
             }
 
-            // Set or update other properties
             stepEntity.date = stepRecord.date
             stepEntity.steps = Int64(stepRecord.steps)
         }
 
-        // Save all changes to the managed context
         try managedContext.save()
         await updateAchievements(stepRecords: stepRecords)
 
