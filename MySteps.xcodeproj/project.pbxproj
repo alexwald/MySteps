@@ -68,7 +68,6 @@
 		FAE493E52BE0213E006D70D3 = {
 			isa = PBXGroup;
 			children = (
-				FAD22F542BE43A0B0042FEF6 /* InfoPlist.xcstrings */,
 				FAE493F02BE0213E006D70D3 /* MySteps */,
 				FAE493EF2BE0213E006D70D3 /* Products */,
 			);
@@ -85,25 +84,20 @@
 		FAE493F02BE0213E006D70D3 /* MySteps */ = {
 			isa = PBXGroup;
 			children = (
+				FAD22F542BE43A0B0042FEF6 /* InfoPlist.xcstrings */,
 				FADE2A782BE2DE9C00471F5C /* MySteps.entitlements */,
 				FAE493F12BE0213E006D70D3 /* MyStepsApp.swift */,
-				FAE4940A2BE2C5BE006D70D3 /* ContentView.swift */,
-				FAD22F562BE4C9B30042FEF6 /* StepDataModel.swift */,
+				FAE863CD2BE50AB800E06112 /* Models */,
+				FAE863CC2BE50A8A00E06112 /* Views */,
 				FAD22F7B2BE4F4F00042FEF6 /* MySteps.xcdatamodeld */,
 				FAD22F522BE436F40042FEF6 /* Localizable.xcstrings */,
-				FAE494042BE0437E006D70D3 /* AchievementsView.swift */,
-				FA9BBC982BE2ED350049E3A0 /* ProfileView.swift */,
 				FAD22F502BE420440042FEF6 /* Logger.swift */,
-				FA44A5722BE365CE0092CB44 /* ChartView.swift */,
 				FAD22F792BE4F4820042FEF6 /* PersistenceController.swift */,
 				FADE2A762BE2D94B00471F5C /* HealthKitController.swift */,
 				FAE493F52BE0213F006D70D3 /* Assets.xcassets */,
-				FAE494062BE2B18F006D70D3 /* AchievementModel.swift */,
 				FAD22F582BE4E8FE0042FEF6 /* LocalizedStrings.swift */,
-				FAE494082BE2B4DB006D70D3 /* AchievementView.swift */,
 				FA753BB92BE371950083385F /* Date+Extensions.swift */,
 				FAD22F4E2BE3E85D0042FEF6 /* Constants.swift */,
-				FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */,
 				FAE493F72BE0213F006D70D3 /* Preview Content */,
 			);
 			path = MySteps;
@@ -115,6 +109,28 @@
 				FAE493F82BE0213F006D70D3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAE863CC2BE50A8A00E06112 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA9BBC982BE2ED350049E3A0 /* ProfileView.swift */,
+				FADE2A792BE2E4F100471F5C /* AchievementDetailView.swift */,
+				FAE494082BE2B4DB006D70D3 /* AchievementView.swift */,
+				FA44A5722BE365CE0092CB44 /* ChartView.swift */,
+				FAE494042BE0437E006D70D3 /* AchievementsView.swift */,
+				FAE4940A2BE2C5BE006D70D3 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FAE863CD2BE50AB800E06112 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAD22F562BE4C9B30042FEF6 /* StepDataModel.swift */,
+				FAE494062BE2B18F006D70D3 /* AchievementModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

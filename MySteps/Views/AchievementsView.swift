@@ -9,16 +9,6 @@ import SwiftUI
 
 struct AchievementsView: View {
     @Binding var achievements: [AchievementModel]
-
-//    var achievements: [AchievementModel] = [AchievementModel(milestone: .fifteenK, date: Date()),
-//                                            AchievementModel(milestone: .twentyK, date: Date()),
-//                                            AchievementModel(milestone: .twentyFiveK, date: Date()),
-//                                            AchievementModel(milestone: .thirtyK, date: Date()),
-//                                            AchievementModel(milestone: .thirtyFiveK, date: Date()),
-//                                            AchievementModel(milestone: .fortyK, date: Date())
-//    ]
-  
-//    var achievements: [AchievementModel] = []
     
     var body: some View {
         VStack {
@@ -64,6 +54,3 @@ struct AchievementsView: View {
         .edgesIgnoringSafeArea(.all)
     }
 }
-//#Preview {
-//    AchievementsView()
-//}

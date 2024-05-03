@@ -105,7 +105,3 @@ struct ChartView: View {
         .chartXScale(domain: 1...latestDayOfTheCurrentMonth)
     }
 }
-
-//#Preview {
-//    ChartView(stepCounts: StepDataModel.preview)
-//}
