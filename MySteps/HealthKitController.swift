@@ -32,9 +32,11 @@ class HealthKitController {
         }
 
         let now = Date()
-        let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: now))!
-        let endOfMonth = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
+        var calendar = Calendar.current
 
+        let startOfMonth = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: now))!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, second: -1), to: startOfMonth)!
+        
         var interval = DateComponents()
         interval.day = 1
 

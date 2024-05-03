@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StepsTakenMilestone: Int {
+enum StepsTakenMilestone: Int, CaseIterable {
     case fifteenK = 15000
     case twentyK = 20000
     case twentyFiveK = 25000
@@ -16,7 +16,7 @@ enum StepsTakenMilestone: Int {
     case fortyK = 40000
     
     var localizedString: String {
-        return "\(String(self.rawValue/1000))k \(NSLocalizedString("Steps", comment: "plural of Step in achievements"))"
+        return "\(String(self.rawValue / 1000))k \(LocalizedStrings.steps)"
     }
 }
 

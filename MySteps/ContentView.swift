@@ -24,11 +24,11 @@ struct ContentView: View {
                         ChartView(stepData: $stepDataModel.stepCounts)
                             .aspectRatio(16/9, contentMode: .fit)
                             .environmentObject(logger)
-                        AchievementsView()
+                        AchievementsView(achievements: $stepDataModel.achievements)
                     }
                     .padding(.top, 20)
                     .padding([.bottom, .leading, .trailing], 5)
-                }
+                } 
             }
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .active {
@@ -57,8 +57,8 @@ struct ContentView: View {
                     }
                 }
             })
-            .alert(NSLocalizedString("Error", comment: ""), isPresented: $showAlert) {
-                Button(NSLocalizedString("OK", comment: ""), role: .cancel) { showAlert.toggle() }
+            .alert(LocalizedStrings.error, isPresented: $showAlert) {
+                Button(LocalizedStrings.OK, role: .cancel) { showAlert.toggle() }
             } message: {
                 Text(alertMessage)
             }
@@ -76,5 +76,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(Logger(subsystem: Bundle.main.bundleIdentifier ?? "MySteps", category: "General"))
-    //        .environmentObject(StepDataModel.preview)
 }
